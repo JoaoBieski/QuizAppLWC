@@ -1,0 +1,25 @@
+.custom-radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start; 
+}
+
+.custom-radio-group .slds-col {
+    white-space: nowrap;
+}
+
+.center-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+}
+
+.question-text {
+    min-width: 300px;
+    max-width: 300px;
+    word-wrap: break-word;
+    margin-bottom: 5px;
+}

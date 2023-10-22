@@ -1,0 +1,58 @@
+<template>
+    <lightning-card title="Quiz App em LWC" class="center-card">
+        <div class="slds-var-m-around_medium">
+            <form>
+                <template for:each={displayedQuestions} for:item="quiz">
+                    <div key={quiz.id} class="slds-var-m-bottom_medium slds-box slds-box_small">
+                        <div class="slds-p-bottom_xx-small question-text"><strong>{quiz.id} - {quiz.question}</strong></div>
+                        <div class="custom-radio-group">
+                            <div class="slds-col">
+                                <template if:true={quiz.isOptionASelected}>
+                                    <input type="radio" name={quiz.id} value="a" onchange={changeHandler} checked>
+                                </template>
+                                <template if:false={quiz.isOptionASelected}>
+                                    <input type="radio" name={quiz.id} value="a" onchange={changeHandler}>
+                                </template>
+                                {quiz.answers.a}
+                            </div>
+                            <div class="slds-col">
+                                <template if:true={quiz.isOptionBSelected}>
+                                    <input type="radio" name={quiz.id} value="b" onchange={changeHandler} checked>
+                                </template>
+                                <template if:false={quiz.isOptionBSelected}>
+                                    <input type="radio" name={quiz.id} value="b" onchange={changeHandler}>
+                                </template>
+                                {quiz.answers.b}
+                            </div>
+                            <div class="slds-col">
+                                <template if:true={quiz.isOptionCSelected}>
+                                    <input type="radio" name={quiz.id} value="c" onchange={changeHandler} checked>
+                                </template>
+                                <template if:false={quiz.isOptionCSelected}>
+                                    <input type="radio" name={quiz.id} value="c" onchange={changeHandler}>
+                                </template>
+                                {quiz.answers.c}
+                            </div>                            
+                        </div>
+                    </div>
+                </template>
+                <div class="slds-var-m-around_medium">
+                    <div class="slds-float_left">
+                        <lightning-button label="Página Anterior" onclick={previousPage} disabled={isPreviousButtonDisabled}></lightning-button>
+                    </div>
+                    <div class="slds-float_right">
+                        <lightning-button label="Página Seguinte" onclick={nextPage} disabled={isNextButtonDisabled}></lightning-button>
+                    </div>
+                </div>
+            </br>
+                <div class="slds-var-m-around_medium slds-text-align_center slds-p-top_x-small">
+                    <lightning-button variant="brand" type="reset" label="Resetar" title="Resetar quiz" class="slds-m-around_small" onclick={resetHandler}></lightning-button>
+                    <lightning-button variant="brand" type="submit" label="Enviar" title="Enviar Quiz" class="slds-m-around_small" disabled={allNotSelected} onclick={submitHandler}></lightning-button>
+                </div>
+            </form>
+            <template if:true={isSubmitted}>
+                <div class={isScoredFull}>Você acertou {correctAnswers} de {myQuestions.length}</div>
+            </template>
+        </div>
+    </lightning-card>
+</template>
