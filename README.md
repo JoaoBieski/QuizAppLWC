@@ -1,4 +1,5 @@
 Quiz App em Salesforce Lightning Web Components (LWC)
+
 Este é um aplicativo de quiz desenvolvido em Salesforce Lightning Web Components (LWC). O aplicativo foi originalmente criado durante o curso "Zero to Lightning" na Udemy, como parte do processo de aprendizado em LWC. 
 No entanto, foram feitas algumas modificações para melhorar a experiência do usuário, incluindo a transformação das perguntas em cartões (cards) e a adição de funcionalidade de paginação para permitir que os usuários avancem ou retornem aos cartões de perguntas.
 
